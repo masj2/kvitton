@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<link rel="stylesheet" href="style.css" type="text/css" />
+		<title>Kvitton</title>
+		<script src="resize.js"></script>
+	</head>
+	<body>
+		<div class="box">
+			<div id="form1">
+				<h3>Kvitton</h3>
+				<p>Ladda upp en eller flera filer innehållande kvitton, och ange i nästa steg vad det gäller.</p>
+				<p>Du kan antingen ladda upp en pdf för ett digitalt köp eller en bild (png/jpg) av ett fysiskt kvitto.</p>
+				<p>Alla bilder kommer skalas om för att passa. Har du med bakgrund i bilden så kommer själva kvittot bli för litet.</p>
+				<p>Du kan dock i tredje steget klippa om bliden så endast själva kvittot är i bild.</p>
+				<p>När du är klar har du möjlighet att kolla hur filen blev innan du skickar in den.</p>
+
+				<form method="post" enctype="multipart/form-data" class="first">
+					<input type="file" name="files[]" multiple />
+					<input type="submit" value="Nästa" name="submit" />
+				</form>
+			</div>
+			<div id="form2">
+				<form method="post" action="pdf.php" name="sec">
+					<span id="data"></span>
+					<ul>
+						<li>
+							<label class="description" for="typ">Typ av kvitto </label>
+							<span>
+							<input id="typ_1" name="typ" class="element radio" type="radio" value="1" checked="checked" />
+							<label class="choice" for="typ_1">Begäran om ersättning</label>
+							<input id="typ_2" name="typ" class="element radio" type="radio" value="2" />
+							<label class="choice" for="typ_2">Kvitto för köp från förbundets kort</label>
+							</span> 
+						</li><li>
+							<label class="description" for="namn">Ditt namn </label>
+							<div>
+								<input id="namn" name="namn" class="element text medium" type="text" maxlength="255" value="" required/> 
+							</div> 
+						</li><li>
+							<label class="description" for="beskr">Beskrivning av utgift </label>
+							<div>
+								<input id="beskr" name="beskr" class="element text medium" type="text" maxlength="255" value="" required/> 
+							</div> 
+						</li><li>
+							<label class="description" for="attest">Vem har gett klartecken för utgiften? </label>
+							<div>
+								<input id="attest" name="attest" class="element text medium" type="text" maxlength="255" value="" required/> 
+							</div>
+						</li>
+						<span id="bank">
+						<p>Om du aldrig fått erstättning förut eller om du har bytt bank, fyll i bankuppgifter</p>
+						<li>
+							<label class="description" for="bank">Bank </label>
+							<div>
+								<input id="bank" name="bank" class="element text medium" type="text" maxlength="255" value=""/> 
+							</div> 
+						</li><li>
+							<label class="description" for="clearing">Clearingnummer </label>
+							<div>
+								<input id="clearing" name="clearing" class="element text small" type="text" maxlength="255" value=""/> 
+							</div> 
+						</li><li>
+							<label class="description" for="nummer">Kontonummer </label>
+							<div>
+								<input id="nummer" name="nummer" class="element text medium" type="text" maxlength="255" value=""/> 
+							</div> 
+						</li>
+						</span>
+						<li class="buttons">
+							<input id="saveForm" class="button_text" type="submit" name="submit" value="Nästa" />
+						</li>
+					</ul>
+				</form>
+			</div>
+			<div id="kvitton"></div>
+			<div>
+			<p>Om du gjort utlägg för Ung Pirat, som du har rätt att få ersättning för, skall du skicka in ditt krav på ersättning senast den femtonde i månaden efter att utgiften skett. (Alltså om du lagt ut pengar för Ung Pirat under Januari skall du redovisa detta senast 15:e Februari)</p>
+			<p>Försenade krav betalas inte ut ifall det inte finns särskilda skäl. Vad som är ett tillräckligt särskilt skäl avgörs från fall till fall av förbundsstyrelsen. För att ta upp en sådan fråga, skicka samtidigt med kravet ett mail till fs@ungpirat.se med förklaring till förseningen.</p>
+			<p>Du kan fortfarande använda dig av detta formulär för att skapa ett offlinedokument att själv skicka in till förbundsstyrelsen.</p>
+			<a href="kakor.php">Om kakor</a>
+			</div>
+		</div>
+		<script src="upload.js"></script>
+	</body>
+</html>
