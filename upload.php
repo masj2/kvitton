@@ -24,6 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 						imagealphablending($bg, TRUE);
 						imagecopy($bg, $image, 0, 0, 0, 0, imagesx($image), imagesy($image));
 						imagedestroy($image);
+						$file_name =  str_replace('PNG', 'png', $file_name);
 						$file_name = str_replace('.'.$file_ext, '', $file_name).".jpg";
 						imagejpeg($bg, $mapp_u.$file_name);
 						array_push($filesession, rawurlencode($file_name));

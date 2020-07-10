@@ -12,7 +12,9 @@
 		<div class="box">
 			<div id="form1">
 				<h3>Kvitton</h3>
-				<p>Ladda upp en eller flera filer innehållande kvitton, och ange i nästa steg vad det gäller.</p>
+				<p>Har du kvitton för Ung Pirat så kan du ladda upp dem här.</p>
+				<p>Har du flera kvitton gällande samma sak, exempelvis flera biljetter till samma resa, så går det bra att ladda upp allt samtidigt, men har du kvitton i olika kategorier som exempelvis resa och mat så får du använda formuläret två gånger.</p>
+				<p>Du laddar först upp en eller flera filer innehållande kvitton här och sen i nästa steg anger du vad det gäller.</p>
 				<p>Du kan antingen ladda upp en pdf för ett digitalt köp eller en bild (png/jpg) av ett fysiskt kvitto.</p>
 				<p>Alla bilder kommer skalas om för att passa. Har du med bakgrund i bilden så kommer själva kvittot bli för litet.</p>
 				<p>Du kan dock i tredje steget klippa om bliden så endast själva kvittot är i bild.</p>
@@ -44,6 +46,16 @@
 							<label class="description" for="beskr">Beskrivning av utgift </label>
 							<div>
 								<input id="beskr" name="beskr" class="element text medium" type="text" maxlength="255" value="" required/> 
+							</div>
+						</li><li>
+							<label class="description" for="datum">Datum på kvittot (skriv alla datum om du har flera kvitton) </label>
+							<div>
+								<input id="datum" name="datum" class="element text medium" type="text" maxlength="255" value="" required/> 
+							</div>
+						</li><li>
+							<label class="description" for="belopp">Belopp (skriv alla belopp samt summa om du har flera kvitton) </label>
+							<div>
+								<input id="belopp" name="belopp" class="element text medium" type="text" maxlength="255" value="" required/> 
 							</div> 
 						</li><li>
 							<label class="description" for="attest">Vem har gett klartecken för utgiften? </label>
@@ -81,7 +93,7 @@
 			<p>Om du gjort utlägg för Ung Pirat, som du har rätt att få ersättning för, skall du skicka in ditt krav på ersättning senast den femtonde i månaden efter att utgiften skett. (Alltså om du lagt ut pengar för Ung Pirat under Januari skall du redovisa detta senast 15:e Februari)</p>
 			<p>Försenade krav betalas inte ut ifall det inte finns särskilda skäl. Vad som är ett tillräckligt särskilt skäl avgörs från fall till fall av förbundsstyrelsen. För att ta upp en sådan fråga, skicka samtidigt med kravet ett mail till fs@ungpirat.se med förklaring till förseningen.</p>
 			<p>Du kan fortfarande använda dig av detta formulär för att skapa ett offlinedokument att själv skicka in till förbundsstyrelsen.</p>
-			<a href="kakor.php">Om kakor</a>
+			<a href="kakor.php">Om kakor</a> <a href="https://github.com/masj2/kvitton">Öppen källkod</a>
 			</div>
 		</div>
 		<script src="upload.js"></script>

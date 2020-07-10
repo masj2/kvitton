@@ -9,12 +9,14 @@ $out = "";
 $extrapdf = array();
 $once=0;
 
-if(isset($_POST['namn'])&&isset($_POST['typ'])&&isset($_POST['beskr'])&&isset($_POST['attest'])){
+if(isset($_POST['namn'])&&isset($_POST['typ'])&&isset($_POST['beskr'])&&isset($_POST['attest'])&&isset($_POST['belopp'])&&isset($_POST['datum'])){
 	$typ = $_POST['typ'];
 	$namn= htmlspecialchars(clean_input($_POST['namn']));
 	$namn_f = safe_input($namn);
 	$beskr= htmlspecialchars(clean_input($_POST['beskr']));
 	$attest= htmlspecialchars(clean_input($_POST['attest']));
+	$datum= htmlspecialchars(clean_input($_POST['datum']));
+	$belopp= htmlspecialchars(clean_input($_POST['belopp']));
 	
 	if($typ==1) $shortFileName= "Claim_".rawurlencode($namn_f);
 	else $shortFileName= "Kortkvitto_".rawurlencode($namn_f);
@@ -26,6 +28,7 @@ if(isset($_POST['namn'])&&isset($_POST['typ'])&&isset($_POST['beskr'])&&isset($_
 	$out .= "<p>Utgiften gäller: ".$beskr.".</p>";
 	if($typ==1) $out .= "<p>Utbetalas till <b>".$namn."</b> och godkänd av <b>".$attest."</b></p>";
 	else $out .= "<p>Inköp gjort av <b>".$namn."</b> och godkänd av <b>".$attest."</b></p>";
+	$out .= "<p>Kvittodatum: <b>".$datum."</b> och belopp: <b>".$belopp."</b></p>";
 	if(isset($_POST['bank'])&&isset($_POST['clearing'])&&$_POST['nummer']&&$typ==1) $out .= "<p>Utbetalas till ".htmlspecialchars(clean_input($_POST['bank']))." med clearingnummer ".safe_input_numbers($_POST['clearing'])." och banknummer ".safe_input_numbers($_POST['nummer'])."</p>";
 	else if($typ==1) $out .= "<p>Betalas ut till känt konto</p>";
 	
