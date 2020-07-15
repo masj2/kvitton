@@ -81,6 +81,7 @@ if(isset($_POST['namn'])&&isset($_POST['typ'])&&isset($_POST['beskr'])&&isset($_
 	}
 	$shortFileName .= "_".$date_str;
 	$_SESSION['link']=$url.$mapp.$shortFileName.".pdf";
+	$_SESSION['shortFileName']=$shortFileName;
 	
 }else if(isset($_POST['x'])&&isset($_POST['y'])&&isset($_POST['w'])&&isset($_POST['h'])&&isset($_POST['f'])&&$_SESSION['out']!=""){//crop
 	$x=safe_input_numbers($_POST['x']);
@@ -148,6 +149,7 @@ if(isset($_POST['namn'])&&isset($_POST['typ'])&&isset($_POST['beskr'])&&isset($_
 	$shortFileName=$_SESSION['shortFileName'];
 	$shortFileName .= "_".$date_str;
 	$_SESSION['link']=$url.$mapp.$shortFileName.".pdf";
+	$_SESSION['shortFileName']=$shortFileName;
 }else die();
 
 //skapa pdf
